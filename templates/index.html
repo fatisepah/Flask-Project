@@ -3,11 +3,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./static/index/one.css">
+    <!-- <link rel="stylesheet" href="./static/index/one.css"> -->
+    <link rel="stylesheet" href="{{url_for('static', filename = 'index/one.css')}}">
 </head>
 <body>
-    <div style="background-color: brown; color: white;">
-        Hello this is HTML file
-    </div>
+    {% if myList %}
+        <ul>
+            {% for number in myList %}
+                <li style="background-color: red; color:white;">
+                    {{number}}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if name %}
+        <div>
+            {{name}}        
+        </div>
+    {% endif %}
+
 </body>
 </html>

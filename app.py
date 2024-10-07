@@ -1,4 +1,4 @@
-from flask import Flask , render_template
+from flask import Flask , render_template , url_for, request
 
 
 app = Flask(__name__)
@@ -6,4 +6,5 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    data = request.args['id']
+    return data
