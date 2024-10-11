@@ -21,14 +21,19 @@
   </head>
   <body>
     <div class="result-container">
-        The email is : 
-        <p>
-          {{email}}
-        </p>
-        The password is : 
-        <p>
-          {{password}}
-        </p>
+      {% if not books %}
+        {% for user in users %}
+          <p>
+            {{user.name}}
+          </p>
+        {% endfor %} 
+      {% else %}
+        {% for book in books %}
+          <p>
+            <span style = "background-color: red; padding: 10px;">{{book.writer.name}}</span>
+          </p>
+        {% endfor %} 
+      {% endif %}
     </div>
   </body>
 </html>
